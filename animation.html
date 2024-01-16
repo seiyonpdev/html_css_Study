@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      width: 800px;
+      height: 640px;
+      background-color: lightblue;
+      position: relative;
+    }
+    #div1{
+      width: 200px;
+      height: 200px;
+      background-color: slateblue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    body { 
+      margin: 0;
+      padding: 24px; 
+      font-size: 16px;
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 1.4em;
+      font-weight: 500;
+      line-height: 1.4em;
+      color: #555;
+    }
+
+    #square {
+      position: absolute;
+      top: 124px;
+      left: 36px;
+      width: 124px;
+      height: 124px;
+      background-color: tomato;
+    }
+
+    @keyframes roll-and-round {
+      /* 시작 */
+      from {
+        left: 36px;
+        border-radius: 0;
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+
+      /* 끝 */
+      to {
+        left: 600px;
+        border-radius: 100%;
+        transform: scale(0.25) rotate(1080deg) ;
+        opacity: 0;
+        
+      }
+
+      /* 중간과정 추가 */
+      67% {
+        transform: scale(2) rotate(540deg);
+        border-radius: 10%;
+        opacity: 1;
+      }
+    }
+
+    /* 요소에 애니메이션을 적용 */
+    #square {
+      /* 사용할 애니메이션의 이름 */
+      animation-name: roll-and-round;
+
+      /* 지속시간 */
+      animation-duration: 2s;
+
+      /* 시간함수 */
+      animation-timing-function: linear;
+
+      /* 지연시간 */
+      animation-delay: 1s;
+
+      /* 반복 횟수 */
+      animation-iteration-count: 3;
+      /* animation-iteration-count: infinite; */
+
+      /* 진행방향 */
+      /* animation-direction: reverse; */
+      animation-direction: alternate;
+    }
+
+    button {
+      all: unset;
+      margin-bottom: 2em;
+      padding: 0 2em;
+      height: 64px;
+      line-height: 64px;
+      font-size: 1.2em;
+      color: white;
+      background-color: tomato;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #loading {
+      position: relative;
+      width: 600px;
+      height: 40px;
+      background-color: lightblue;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    #loading > div {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #loading > div > div {
+      flex-grow: 1;
+    }
+    #loading > div > div:nth-child(odd) {
+      background-color: dodgerblue;
+    }
+
+    button._1:hover{
+      background-color: blueviolet;
+      border-radius: 50px;
+      transition : background-color 1s;
+      transition : border-radius 1s;
+    }
+
+    @keyframes my_anim {
+      from {
+        transform : scale(1);
+      }
+
+      50% {
+        transform : scale(1.2);
+      }
+
+      to {
+        transform : scale(1);
+      }
+    }
+
+    button._2:hover {
+      animation : my_anim 200ms;
+    }
+
+    #loading > div {
+      transform : skewX(-20deg);
+      animation-name:  move-right;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes move-right {
+      from {
+        left : -600px;
+      }
+      to {
+        left : 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- <section>
+    <div id="div1"></div>
+  </section> -->
+
+  <br><br>
+
+  <h1>animation 속성</h1>
+  <div id="square"></div>
+
+  <br><br><br><br><br><br><br><br>
+
+  <button class="_1">
+    마우스 커서를 올려보세요!
+  </button>
+  <br>
+  <button class="_2">
+    마우스 커서를 올려보세요!
+  </button>
+  <br>
+  <div id="loading">
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>
